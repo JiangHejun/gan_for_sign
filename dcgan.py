@@ -2,7 +2,7 @@
 Description: 
 Author: Hejun Jiang
 Date: 2020-12-16 07:39:47
-LastEditTime: 2020-12-21 14:58:08
+LastEditTime: 2020-12-21 16:11:41
 LastEditors: Hejun Jiang
 Version: v0.0.1
 Contact: jianghejun@hccl.ioa.ac.cn
@@ -44,7 +44,7 @@ def GetModelAndLoss(device, opt):
 
 def GetDataLoader(opt):
     dataloader = torch.utils.data.DataLoader(
-        dataset=dataset.GetDataSet(opt.img_size_h, opt.img_size_w, opt.img_size_h, opt.channels, opt.image_dir),
+        dataset=dataset.GetDataSet(opt.img_size_h, opt.img_size_w, opt.channels, opt.image_dir),
         batch_size=opt.batch_size,
         shuffle=True,
     )
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     parser.add_argument("--save_img_dir", type=str, default='./images_0.0002_savemd', help="the train images save's dir")
     parser.add_argument("--save_model_interval", type=int, default=1000, help="save train model interval")
     parser.add_argument("--save_model_dir", type=str, default='./model', help="the train images save's dir")
-    parser.add_argument("--device", type=str, default='2', help="0 or 0,1,2,3 or cpu")
+    parser.add_argument("--device", type=str, default='3', help="0 or 0,1,2,3 or cpu")
     opt = parser.parse_args()
     assert opt.channels == 1 or opt.channels == 3, 'image channels must 1 or 3'
     print(opt)
