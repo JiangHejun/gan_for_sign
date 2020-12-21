@@ -2,7 +2,7 @@
 Description:
 Author: Hejun Jiang
 Date: 2020-12-21 14:06:18
-LastEditTime: 2020-12-21 14:59:11
+LastEditTime: 2020-12-21 16:50:26
 LastEditors: Hejun Jiang
 Version: v0.0.1
 Contact: jianghejun@hccl.ioa.ac.cn
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     generator = model.Generator(imgh, latent_dim, channels)  # h, dim, c
     print(generator)
     pth = torch.load(os.path.join(modeldir, modelname), map_location=device)
-    generator.load_state_dict(pth['state_dict'])
+    generator.load_state_dict(pth['generator_model_state_dict'])
     generator.eval()  # 设置为评估模式；如果是resume，则设置为train模式
     print('generator load parameters done')
 
